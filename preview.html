@@ -108,7 +108,7 @@ function renderItem(item, container, onComplete) {
 }
 
 async function boot() {
-  const lessonText = await (await fetch("lesson-g9-l16-freytags-pyramid.html")).text();
+  const lessonText = await (await fetch("lesson-g9-l16-freytags-pyramid.html", { cache: "no-store" })).text();
   const lesson = new DOMParser().parseFromString(lessonText, "text/html");
   lesson.querySelectorAll(".tb-catalog .tb-qti-config").forEach(cfg => {
     state.catalog[cfg.id] = cfg.querySelector("a").getAttribute("href");
@@ -174,7 +174,7 @@ async function boot() {
     vid.pause();
     overlay.classList.add("open");
     qcard.innerHTML = "<p>Loading question…</p>";
-    const item = parseItem(await (await fetch(state.catalog[cue.idref])).text());
+    const item = parseItem(await (await fetch(state.catalog[cue.idref], { cache: "no-store" })).text());
     renderItem(item, qcard, () => {
       cue.done = true; state.current = null;
       overlay.classList.remove("open");
