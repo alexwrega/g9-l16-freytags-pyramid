@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<qti-assessment-item xmlns="http://www.imsglobal.org/xsd/imsqtiasi_v3p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqtiasi_v3p0 https://purl.imsglobal.org/spec/qti/v3p0/schema/xsd/imsqti_asiv3p0_v1p0.xsd http://www.w3.org/1998/Math/MathML https://purl.imsglobal.org/spec/mathml/v3p0/schema/xsd/mathml3.xsd" identifier="lwai_36523e4c-eb23-4dfd-a04c-ba58768f2ee3" title="L16 Quiz — The climax" adaptive="true" time-dependent="false" xml:lang="en-US">
+  <qti-response-declaration identifier="RESPONSE" cardinality="single" base-type="identifier">
+    <qti-correct-response>
+      <qti-value>A</qti-value>
+    </qti-correct-response>
+  </qti-response-declaration>
+  <qti-outcome-declaration identifier="SCORE" cardinality="single" base-type="float"/>
+  <qti-outcome-declaration identifier="FEEDBACK" cardinality="single" base-type="identifier"/>
+  <qti-item-body>
+    <qti-choice-interaction max-choices="1" response-identifier="RESPONSE">
+      <qti-prompt data-catalog-idref="tts_prompt">
+        <p>In Freytag's Pyramid, the climax is —</p>
+      </qti-prompt>
+      <qti-simple-choice fixed="true" identifier="A">
+        <div data-catalog-idref="tts_choice_A">
+          <p>the turning point of highest tension</p>
+        </div>
+        <qti-feedback-block identifier="feedback_A" outcome-identifier="FEEDBACK" show-hide="show">
+          <qti-content-body>
+            <div class="tb-feedback-correct" data-catalog-idref="feedback_A">
+              <p>Correct! The climax is the turning point and moment of highest tension.</p>
+            </div>
+          </qti-content-body>
+        </qti-feedback-block>
+      </qti-simple-choice>
+      <qti-simple-choice fixed="true" identifier="B">
+        <div data-catalog-idref="tts_choice_B">
+          <p>the opening that introduces the characters</p>
+        </div>
+        <qti-feedback-block identifier="feedback_B" outcome-identifier="FEEDBACK" show-hide="show">
+          <qti-content-body>
+            <div class="tb-feedback-incorrect" data-catalog-idref="feedback_B">
+              <p>That describes the exposition — the setup before anything has gone wrong.</p>
+            </div>
+          </qti-content-body>
+        </qti-feedback-block>
+      </qti-simple-choice>
+      <qti-simple-choice fixed="true" identifier="C">
+        <div data-catalog-idref="tts_choice_C">
+          <p>the calm ending that settles the story</p>
+        </div>
+        <qti-feedback-block identifier="feedback_C" outcome-identifier="FEEDBACK" show-hide="show">
+          <qti-content-body>
+            <div class="tb-feedback-incorrect" data-catalog-idref="feedback_C">
+              <p>That describes the resolution, where things settle and the loose ends get tied.</p>
+            </div>
+          </qti-content-body>
+        </qti-feedback-block>
+      </qti-simple-choice>
+      <qti-simple-choice fixed="true" identifier="D">
+        <div data-catalog-idref="tts_choice_D">
+          <p>the background information before the action</p>
+        </div>
+        <qti-feedback-block identifier="feedback_D" outcome-identifier="FEEDBACK" show-hide="show">
+          <qti-content-body>
+            <div class="tb-feedback-incorrect" data-catalog-idref="feedback_D">
+              <p>Background information is the exposition's job — not the story's turning point.</p>
+            </div>
+          </qti-content-body>
+        </qti-feedback-block>
+      </qti-simple-choice>
+    </qti-choice-interaction>
+  </qti-item-body>
+  <qti-catalog-info>
+    <qti-catalog id="tts_prompt">
+      <qti-card support="spoken">
+        <qti-card-entry data-reading-type="computer-read-aloud">
+          <qti-html-content>
+            <p>In Freytag's Pyramid, the climax is —</p>
+          </qti-html-content>
+        </qti-card-entry>
+      </qti-card>
+    </qti-catalog>
+    <qti-catalog id="tts_choice_A">
+      <qti-card support="spoken">
+        <qti-card-entry data-reading-type="computer-read-aloud">
+          <qti-html-content>
+            <p>the turning point of highest tension</p>
+          </qti-html-content>
+        </qti-card-entry>
+      </qti-card>
+    </qti-catalog>
+    <qti-catalog id="tts_choice_B">
+      <qti-card support="spoken">
+        <qti-card-entry data-reading-type="computer-read-aloud">
+          <qti-html-content>
+            <p>the opening that introduces the characters</p>
+          </qti-html-content>
+        </qti-card-entry>
+      </qti-card>
+    </qti-catalog>
+    <qti-catalog id="tts_choice_C">
+      <qti-card support="spoken">
+        <qti-card-entry data-reading-type="computer-read-aloud">
+          <qti-html-content>
+            <p>the calm ending that settles the story</p>
+          </qti-html-content>
+        </qti-card-entry>
+      </qti-card>
+    </qti-catalog>
+    <qti-catalog id="tts_choice_D">
+      <qti-card support="spoken">
+        <qti-card-entry data-reading-type="computer-read-aloud">
+          <qti-html-content>
+            <p>the background information before the action</p>
+          </qti-html-content>
+        </qti-card-entry>
+      </qti-card>
+    </qti-catalog>
+    <qti-catalog id="feedback_A">
+      <qti-card support="spoken">
+        <qti-card-entry data-reading-type="computer-read-aloud">
+          <qti-html-content>
+            <p>Correct! The climax is the turning point and moment of highest tension.</p>
+          </qti-html-content>
+        </qti-card-entry>
+      </qti-card>
+    </qti-catalog>
+    <qti-catalog id="feedback_B">
+      <qti-card support="spoken">
+        <qti-card-entry data-reading-type="computer-read-aloud">
+          <qti-html-content>
+            <p>That describes the exposition — the setup before anything has gone wrong.</p>
+          </qti-html-content>
+        </qti-card-entry>
+      </qti-card>
+    </qti-catalog>
+    <qti-catalog id="feedback_C">
+      <qti-card support="spoken">
+        <qti-card-entry data-reading-type="computer-read-aloud">
+          <qti-html-content>
+            <p>That describes the resolution, where things settle and the loose ends get tied.</p>
+          </qti-html-content>
+        </qti-card-entry>
+      </qti-card>
+    </qti-catalog>
+    <qti-catalog id="feedback_D">
+      <qti-card support="spoken">
+        <qti-card-entry data-reading-type="computer-read-aloud">
+          <qti-html-content>
+            <p>Background information is the exposition's job — not the story's turning point.</p>
+          </qti-html-content>
+        </qti-card-entry>
+      </qti-card>
+    </qti-catalog>
+  </qti-catalog-info>
+  <qti-response-processing>
+    <qti-response-condition>
+      <qti-response-if>
+        <qti-match>
+          <qti-variable identifier="RESPONSE"/>
+          <qti-correct identifier="RESPONSE"/>
+        </qti-match>
+        <qti-set-outcome-value identifier="FEEDBACK">
+          <qti-base-value base-type="identifier">feedback_A</qti-base-value>
+        </qti-set-outcome-value>
+        <qti-set-outcome-value identifier="SCORE">
+          <qti-base-value base-type="float">1</qti-base-value>
+        </qti-set-outcome-value>
+        <qti-set-outcome-value identifier="completionStatus">
+          <qti-base-value base-type="identifier">completed</qti-base-value>
+        </qti-set-outcome-value>
+      </qti-response-if>
+      <qti-response-else>
+        <qti-set-outcome-value identifier="SCORE">
+          <qti-base-value base-type="float">0</qti-base-value>
+        </qti-set-outcome-value>
+        <qti-set-outcome-value identifier="completionStatus">
+          <qti-base-value base-type="identifier">incomplete</qti-base-value>
+        </qti-set-outcome-value>
+      </qti-response-else>
+    </qti-response-condition>
+    <qti-response-condition>
+      <qti-response-if>
+        <qti-match>
+          <qti-variable identifier="RESPONSE"/>
+          <qti-base-value base-type="identifier">B</qti-base-value>
+        </qti-match>
+        <qti-set-outcome-value identifier="FEEDBACK">
+          <qti-base-value base-type="identifier">feedback_B</qti-base-value>
+        </qti-set-outcome-value>
+      </qti-response-if>
+    </qti-response-condition>
+    <qti-response-condition>
+      <qti-response-if>
+        <qti-match>
+          <qti-variable identifier="RESPONSE"/>
+          <qti-base-value base-type="identifier">C</qti-base-value>
+        </qti-match>
+        <qti-set-outcome-value identifier="FEEDBACK">
+          <qti-base-value base-type="identifier">feedback_C</qti-base-value>
+        </qti-set-outcome-value>
+      </qti-response-if>
+    </qti-response-condition>
+    <qti-response-condition>
+      <qti-response-if>
+        <qti-match>
+          <qti-variable identifier="RESPONSE"/>
+          <qti-base-value base-type="identifier">D</qti-base-value>
+        </qti-match>
+        <qti-set-outcome-value identifier="FEEDBACK">
+          <qti-base-value base-type="identifier">feedback_D</qti-base-value>
+        </qti-set-outcome-value>
+      </qti-response-if>
+    </qti-response-condition>
+  </qti-response-processing>
+</qti-assessment-item>

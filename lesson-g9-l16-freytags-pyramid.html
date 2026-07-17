@@ -1,0 +1,72 @@
+<!--
+  G9 · U3 Narrative · L16 — Plot & Conflict: Freytag's Pyramid
+  Content Renderer lesson: video with 8 timestamp cue questions
+  (4 mid-video checkpoints + the 4 quiz questions chained on the closing card).
+
+  Cue timestamps were measured against the delivered MP4 (336.5 s — NOT the scripted 5:08).
+  Each editor checkpoint is a card + silence hold in the video; cues fire ~0.5 s after the
+  card settles, well before narration resumes:
+    96.5  → L16Q1  ("Where's the climax?" card,      hold 95.9–100.0)
+    181.5 → L16Q2  ("External or internal?" card,    hold 180.8–184.5)
+    285.5 → L16Q3  ("What's the conflict?" card,     hold 284.6–287.9)
+    301.5 → L16Q-READ (Poe excerpt fully typed 300.8; answer reveal in narration at 303.5)
+  Closing quiz rides the end card ("Find the conflict first." + labeled pyramid,
+  frozen 332.8–336.5, audio quiet from 331.7). Staggered ~0.9 s so they fire in order,
+  back-to-back over the static card; the last completes ~1 s before the end, so
+  VIDEO_COMPLETED still fires after it:
+    333   → L16Q4    333.9 → L16Q5    334.8 → L16Q6    335.6 → L16Q7
+
+  BEFORE PUSHING TO THE PLATFORM:
+  1. All URLs below are RELATIVE so the bundle works locally (see preview.html).
+     The live player needs fully-qualified https:// URLs for media (video src, poster).
+     Catalog item hrefs may stay relative only if the embed sets config.baseUrl;
+     otherwise make them absolute too.
+  2. This file is authored bootloader-style (outer tb-instructional-content wrapper).
+     For postMessage / Direct URL embeds, send only the inner content
+     (tb-article-container + tb-catalog) — do not double-wrap.
+-->
+<div class="tb-instructional-content" data-tb-instructional-content-id="g9-u3-narrative-l16-plot-conflict-freytags-pyramid" style="height: 100vh">
+  <div class="tb-article-container">
+    <section class="tb-segment">
+      <h2>Plot &amp; Conflict — Freytag's Pyramid</h2>
+      <figure class="tb-video" id="g9-l16-freytags-pyramid-video" data-duration-seconds="336.5">
+        <figcaption>Plot &amp; Conflict — Freytag's Pyramid</figcaption>
+        <video src="g9-reading-freytags-pyramid-plot-conflict.mp4" poster="poster-g9-l16-freytags-pyramid.jpg" controls crossorigin="anonymous"></video>
+        <div class="tb-interaction tb-qti-assessment-item" data-timestamp-seconds="96.5" data-catalog-idref="l16-q1"></div>
+        <div class="tb-interaction tb-qti-assessment-item" data-timestamp-seconds="181.5" data-catalog-idref="l16-q2"></div>
+        <div class="tb-interaction tb-qti-assessment-item" data-timestamp-seconds="285.5" data-catalog-idref="l16-q3"></div>
+        <div class="tb-interaction tb-qti-assessment-item" data-timestamp-seconds="301.5" data-catalog-idref="l16-q-read"></div>
+        <div class="tb-interaction tb-qti-assessment-item" data-timestamp-seconds="333" data-catalog-idref="l16-q4"></div>
+        <div class="tb-interaction tb-qti-assessment-item" data-timestamp-seconds="333.9" data-catalog-idref="l16-q5"></div>
+        <div class="tb-interaction tb-qti-assessment-item" data-timestamp-seconds="334.8" data-catalog-idref="l16-q6"></div>
+        <div class="tb-interaction tb-qti-assessment-item" data-timestamp-seconds="335.6" data-catalog-idref="l16-q7"></div>
+      </figure>
+    </section>
+  </div>
+  <div class="tb-catalog" hidden>
+    <div class="tb-qti-config" id="l16-q1">
+      <a href="items/l16-q1-stage-order.xml" type="application/xml"></a>
+    </div>
+    <div class="tb-qti-config" id="l16-q2">
+      <a href="items/l16-q2-internal-conflict.xml" type="application/xml"></a>
+    </div>
+    <div class="tb-qti-config" id="l16-q3">
+      <a href="items/l16-q3-conflict-first.xml" type="application/xml"></a>
+    </div>
+    <div class="tb-qti-config" id="l16-q-read">
+      <a href="items/l16-q-read-tell-tale-heart.xml" type="application/xml"></a>
+    </div>
+    <div class="tb-qti-config" id="l16-q4">
+      <a href="items/l16-q4-climax.xml" type="application/xml"></a>
+    </div>
+    <div class="tb-qti-config" id="l16-q5">
+      <a href="items/l16-q5-necklace-rising-action.xml" type="application/xml"></a>
+    </div>
+    <div class="tb-qti-config" id="l16-q6">
+      <a href="items/l16-q6-plot-delivery.xml" type="application/xml"></a>
+    </div>
+    <div class="tb-qti-config" id="l16-q7">
+      <a href="items/l16-q7-conflict-definition.xml" type="application/xml"></a>
+    </div>
+  </div>
+</div>

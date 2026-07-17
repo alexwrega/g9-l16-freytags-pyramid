@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>L16 preview — video cue placement check</title>
+<!--
+  LOCAL PREVIEW HARNESS — not the real lwai renderer.
+  It reads lesson-g9-l16-freytags-pyramid.html as the source of truth (cue timestamps,
+  catalog wiring, item XML) and mimics the pause-at-cue behavior so placements can be
+  eyeballed before pushing. Final verification must still happen in the live player.
+
+  Run from this folder:   python3 -m http.server 8123
+  Then open:              http://localhost:8123/preview.html
+-->
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 2rem auto; max-width: 860px; color: #222; }
+  h1 { font-size: 1.3rem; } h2 { font-size: 1.05rem; margin-top: 2rem; }
+  .note { background: #fff8e1; border: 1px solid #e6d28a; border-radius: 8px; padding: .6rem .9rem; font-size: .9rem; }
+  .stage { position: relative; }
+  video { width: 100%; border-radius: 10px; background: #000; }
+  .overlay { position: absolute; inset: 0; background: rgba(20,16,12,.55); display: none; align-items: center; justify-content: center; border-radius: 10px; }
+  .overlay.open { display: flex; }
+  .qcard { background: #fffdf7; border-radius: 12px; padding: 1.1rem 1.3rem; width: min(92%, 560px); max-height: 92%; overflow: auto; box-shadow: 0 12px 40px rgba(0,0,0,.4); }
+  .qcard blockquote { border-left: 3px solid #b5651d; margin: 0 0 .8rem; padding: .3rem .9rem; font-style: italic; background: #faf4e8; }
+  .choice { display: block; width: 100%; text-align: left; margin: .35rem 0; padding: .55rem .8rem; border: 1.5px solid #ccc; border-radius: 8px; background: #fff; cursor: pointer; font-size: .95rem; }
+  .choice:hover { border-color: #b5651d; }
+  .choice.picked-wrong { border-color: #c0392b; background: #fdecea; }
+  .choice.picked-right { border-color: #1e8449; background: #eafaf1; }
+  .fb { margin-top: .7rem; padding: .6rem .8rem; border-radius: 8px; font-size: .92rem; display: none; }
+  .fb.correct { display: block; background: #eafaf1; border: 1px solid #1e8449; }
+  .fb.incorrect { display: block; background: #fdecea; border: 1px solid #c0392b; }
+  .resume { margin-top: .8rem; padding: .5rem 1.1rem; border: 0; border-radius: 8px; background: #1e8449; color: #fff; font-size: .95rem; cursor: pointer; display: none; }
+  .resume.show { display: inline-block; }
+  .timeline { position: relative; height: 18px; background: #eee; border-radius: 9px; margin: .8rem 0 .3rem; cursor: pointer; touch-action: none; }
+  .timeline:hover { background: #e4e0d8; }
+  .cuemark { position: absolute; top: -3px; width: 4px; height: 24px; background: #b5651d; border-radius: 2px; pointer-events: none; }
+  .playhead { position: absolute; top: 0; width: 2px; height: 18px; background: #333; pointer-events: none; }
+  .time-readout { font-variant-numeric: tabular-nums; font-size: .85rem; color: #555; margin-bottom: .4rem; }
+  .jumps button { margin: .2rem .3rem .2rem 0; padding: .35rem .7rem; border: 1px solid #b5651d; background: #fff; color: #7a4413; border-radius: 6px; cursor: pointer; font-size: .85rem; }
+</style>
+</head>
+<body>
+<h1>G9-L16 · Freytag's Pyramid — cue placement preview</h1>
+<p class="note">Local harness only — reads <code>lesson-g9-l16-freytags-pyramid.html</code> for cues, catalog, and item XML, and mimics the renderer's pause-at-timestamp behavior (retry-until-correct). Use the jump buttons to land ~4 s before each cue and watch it fire. Drag the timeline bar (or the native controls) to scrub — cues only fire when playback crosses them, not when you jump past.</p>
+
+<div class="stage">
+  <video id="vid" controls></video>
+  <div class="overlay" id="overlay"><div class="qcard" id="qcard"></div></div>
+</div>
+<div class="timeline" id="timeline"><div class="playhead" id="playhead"></div></div>
+<div class="time-readout" id="readout">0:00 / 0:00</div>
+<div class="jumps" id="jumps"></div>
+
+<script>
+const S = new XMLSerializer();
+const state = { cues: [], catalog: {}, current: null };
+
+function innerHTMLOf(node) {
+  return Array.from(node.childNodes).map(n => S.serializeToString(n)).join("");
+}
+
+function parseItem(xmlText) {
+  const doc = new DOMParser().parseFromString(xmlText, "application/xml");
+  const correct = doc.getElementsByTagName("qti-correct-response")[0]
+    .getElementsByTagName("qti-value")[0].textContent.trim();
+  const title = doc.documentElement.getAttribute("title") || "";
+  const body = doc.getElementsByTagName("qti-item-body")[0];
+  const interaction = doc.getElementsByTagName("qti-choice-interaction")[0];
+  const passage = Array.from(body.children)
+    .filter(el => el !== interaction && el.tagName !== "qti-feedback-block")
+    .map(innerHTMLOf).join("");
+  const prompt = innerHTMLOf(interaction.getElementsByTagName("qti-prompt")[0]);
+  const choices = Array.from(interaction.getElementsByTagName("qti-simple-choice")).map(ch => {
+    const bodyDiv = Array.from(ch.children).find(el => el.tagName === "div");
+    const fb = ch.getElementsByTagName("qti-content-body")[0];
+    return {
+      id: ch.getAttribute("identifier"),
+      html: bodyDiv ? innerHTMLOf(bodyDiv) : "",
+      feedback: fb ? innerHTMLOf(fb) : ""
+    };
+  });
+  return { title, correct, passage, prompt, choices };
+}
+
+function renderItem(item, container, onComplete) {
+  container.innerHTML =
+    `<div style="font-size:.8rem;color:#888">${item.title}</div>` +
+    item.passage + item.prompt +
+    item.choices.map(c => `<button class="choice" data-id="${c.id}"><strong>${c.id})</strong> ${c.html}</button>`).join("") +
+    `<div class="fb" id="fb"></div><button class="resume" id="resume">Continue ▸</button>`;
+  const fb = container.querySelector("#fb");
+  const resume = container.querySelector("#resume");
+  container.querySelectorAll(".choice").forEach(btn => {
+    btn.onclick = () => {
+      const pick = item.choices.find(c => c.id === btn.dataset.id);
+      const right = pick.id === item.correct;
+      container.querySelectorAll(".choice").forEach(b => b.classList.remove("picked-wrong", "picked-right"));
+      btn.classList.add(right ? "picked-right" : "picked-wrong");
+      fb.className = "fb " + (right ? "correct" : "incorrect");
+      fb.innerHTML = pick.feedback || (right ? "<p>Correct!</p>" : "<p>Try again.</p>");
+      if (right) { // completionStatus=completed → interaction ends
+        container.querySelectorAll(".choice").forEach(b => b.disabled = true);
+        resume.classList.add("show");
+      } // wrong → incomplete → retry-until-correct
+    };
+  });
+  resume.onclick = onComplete;
+}
+
+async function boot() {
+  const lessonText = await (await fetch("lesson-g9-l16-freytags-pyramid.html")).text();
+  const lesson = new DOMParser().parseFromString(lessonText, "text/html");
+  lesson.querySelectorAll(".tb-catalog .tb-qti-config").forEach(cfg => {
+    state.catalog[cfg.id] = cfg.querySelector("a").getAttribute("href");
+  });
+  const fig = lesson.querySelector("figure.tb-video");
+  const vid = document.getElementById("vid");
+  vid.src = fig.querySelector("video").getAttribute("src");
+  vid.poster = fig.querySelector("video").getAttribute("poster") || "";
+
+  state.cues = Array.from(fig.querySelectorAll("[data-timestamp-seconds]")).map(m => ({
+    t: parseFloat(m.dataset.timestampSeconds),
+    idref: m.dataset.catalogIdref,
+    done: false
+  })).sort((a, b) => a.t - b.t);
+
+  const timeline = document.getElementById("timeline");
+  const jumps = document.getElementById("jumps");
+  const dur = parseFloat(fig.dataset.durationSeconds) || 336.5;
+  state.cues.forEach(c => {
+    const mark = document.createElement("div");
+    mark.className = "cuemark";
+    mark.style.left = (c.t / dur * 100) + "%";
+    mark.title = `${c.idref} @ ${c.t}s`;
+    timeline.appendChild(mark);
+    const b = document.createElement("button");
+    b.textContent = `▶ ${c.idref} @ ${c.t}s`;
+    b.onclick = () => { c.done = false; vid.currentTime = Math.max(0, c.t - 4); vid.play(); };
+    jumps.appendChild(b);
+  });
+
+  const playhead = document.getElementById("playhead");
+  const readout = document.getElementById("readout");
+  const fmt = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+  function paintTime() {
+    playhead.style.left = (vid.currentTime / dur * 100) + "%";
+    readout.textContent = `${fmt(vid.currentTime)} / ${fmt(dur)}`;
+  }
+  function seekFromEvent(e) {
+    const rect = timeline.getBoundingClientRect();
+    const frac = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+    vid.currentTime = frac * dur;
+    paintTime();
+  }
+  let scrubbing = false;
+  timeline.addEventListener("pointerdown", e => { scrubbing = true; timeline.setPointerCapture(e.pointerId); seekFromEvent(e); });
+  timeline.addEventListener("pointermove", e => { if (scrubbing) seekFromEvent(e); });
+  ["pointerup", "pointercancel"].forEach(ev => timeline.addEventListener(ev, () => { scrubbing = false; }));
+
+  let lastT = 0;
+  vid.addEventListener("seeked", () => { lastT = vid.currentTime; paintTime(); });
+
+  const overlay = document.getElementById("overlay");
+  const qcard = document.getElementById("qcard");
+  vid.addEventListener("timeupdate", async () => {
+    const t = vid.currentTime;
+    paintTime();
+    if (state.current) { lastT = t; return; }
+    // fire only when playback crosses a cue naturally — seeking past it does not trigger
+    const cue = state.cues.find(c => !c.done && lastT < c.t && t >= c.t && t - lastT < 2);
+    lastT = t;
+    if (!cue) return;
+    state.current = cue;
+    vid.pause();
+    overlay.classList.add("open");
+    qcard.innerHTML = "<p>Loading question…</p>";
+    const item = parseItem(await (await fetch(state.catalog[cue.idref])).text());
+    renderItem(item, qcard, () => {
+      cue.done = true; state.current = null;
+      overlay.classList.remove("open");
+      vid.play();
+    });
+  });
+}
+boot().catch(e => document.body.insertAdjacentHTML("afterbegin",
+  `<p class="note">Failed to load: ${e}. Serve this folder over HTTP (python3 -m http.server 8123) — file:// won't work.</p>`));
+</script>
+</body>
+</html>
