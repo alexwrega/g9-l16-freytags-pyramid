@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<qti-assessment-item xmlns="http://www.imsglobal.org/xsd/imsqtiasi_v3p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqtiasi_v3p0 https://purl.imsglobal.org/spec/qti/v3p0/schema/xsd/imsqti_asiv3p0_v1p0.xsd http://www.w3.org/1998/Math/MathML https://purl.imsglobal.org/spec/mathml/v3p0/schema/xsd/mathml3.xsd" identifier="lwai_7b773372-ade8-4e24-9172-7a6f889b53d6" title="L16 Checkpoint 2 — Internal conflict" adaptive="true" time-dependent="false" xml:lang="en-US">
+<qti-assessment-item xmlns="http://www.imsglobal.org/xsd/imsqtiasi_v3p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqtiasi_v3p0 https://purl.imsglobal.org/spec/qti/v3p0/schema/xsd/imsqti_asiv3p0_v1p0.xsd http://www.w3.org/1998/Math/MathML https://purl.imsglobal.org/spec/mathml/v3p0/schema/xsd/mathml3.xsd" identifier="lwai_7b773372-ade8-4e24-9172-7a6f889b53d6" title="L16 Checkpoint 2 — External or internal?" adaptive="true" time-dependent="false" xml:lang="en-US">
   <qti-response-declaration identifier="RESPONSE" cardinality="single" base-type="identifier">
     <qti-correct-response>
       <qti-value>B</qti-value>
@@ -10,52 +10,52 @@
   <qti-item-body>
     <qti-choice-interaction max-choices="1" response-identifier="RESPONSE">
       <qti-prompt data-catalog-idref="tts_prompt">
-        <p>What is an example of INTERNAL conflict?</p>
+        <p>A sailor fighting to keep his boat from going under is an example of —</p>
       </qti-prompt>
       <qti-simple-choice fixed="true" identifier="A">
         <div data-catalog-idref="tts_choice_A">
-          <p>A hero battling a fearsome monster</p>
+          <p>internal conflict</p>
         </div>
         <qti-feedback-block identifier="feedback_A" outcome-identifier="FEEDBACK" show-hide="show">
           <qti-content-body>
             <div class="tb-feedback-incorrect" data-catalog-idref="feedback_A">
-              <p>A monster is something out in the world — a visible struggle. That's the other flavor of conflict.</p>
+              <p>Internal conflict happens inside one head — fear, pride, doubt. This sailor's fight isn't in his head; look where the struggle is actually taking place.</p>
             </div>
           </qti-content-body>
         </qti-feedback-block>
       </qti-simple-choice>
       <qti-simple-choice fixed="true" identifier="B">
         <div data-catalog-idref="tts_choice_B">
-          <p>A hero struggling against their own fear or pride</p>
+          <p>external conflict</p>
         </div>
         <qti-feedback-block identifier="feedback_B" outcome-identifier="FEEDBACK" show-hide="show">
           <qti-content-body>
             <div class="tb-feedback-correct" data-catalog-idref="feedback_B">
-              <p>Correct! Internal conflict is a character against their own emotions, like fear or pride.</p>
+              <p>Correct! The sailor is struggling against something out in the world — the storm and the sea — so the conflict is external, like the figure braced against the storm in the video.</p>
             </div>
           </qti-content-body>
         </qti-feedback-block>
       </qti-simple-choice>
       <qti-simple-choice fixed="true" identifier="C">
         <div data-catalog-idref="tts_choice_C">
-          <p>Two armies fighting on a field</p>
+          <p>no conflict at all</p>
         </div>
         <qti-feedback-block identifier="feedback_C" outcome-identifier="FEEDBACK" show-hide="show">
           <qti-content-body>
             <div class="tb-feedback-incorrect" data-catalog-idref="feedback_C">
-              <p>Two armies clashing is a struggle you can see out in the world — not a battle happening inside one head.</p>
+              <p>A sailor versus a sinking boat is a life-or-death struggle — without a problem like this, you'd just have a list of stuff that happened.</p>
             </div>
           </qti-content-body>
         </qti-feedback-block>
       </qti-simple-choice>
       <qti-simple-choice fixed="true" identifier="D">
         <div data-catalog-idref="tts_choice_D">
-          <p>A violent storm wrecking a ship</p>
+          <p>the resolution</p>
         </div>
         <qti-feedback-block identifier="feedback_D" outcome-identifier="FEEDBACK" show-hide="show">
           <qti-content-body>
             <div class="tb-feedback-incorrect" data-catalog-idref="feedback_D">
-              <p>A storm is an outside force acting on the character — the struggle is visible, not inside one head.</p>
+              <p>The resolution is a stage of the plot — the settling at the end. This question asks what kind of struggle the sailor is in, and nothing here is settling.</p>
             </div>
           </qti-content-body>
         </qti-feedback-block>
@@ -67,7 +67,7 @@
       <qti-card support="spoken">
         <qti-card-entry data-reading-type="computer-read-aloud">
           <qti-html-content>
-            <p>What is an example of INTERNAL conflict?</p>
+            <p>A sailor fighting to keep his boat from going under is an example of —</p>
           </qti-html-content>
         </qti-card-entry>
       </qti-card>
@@ -76,7 +76,7 @@
       <qti-card support="spoken">
         <qti-card-entry data-reading-type="computer-read-aloud">
           <qti-html-content>
-            <p>A hero battling a fearsome monster</p>
+            <p>internal conflict</p>
           </qti-html-content>
         </qti-card-entry>
       </qti-card>
@@ -85,7 +85,7 @@
       <qti-card support="spoken">
         <qti-card-entry data-reading-type="computer-read-aloud">
           <qti-html-content>
-            <p>A hero struggling against their own fear or pride</p>
+            <p>external conflict</p>
           </qti-html-content>
         </qti-card-entry>
       </qti-card>
@@ -94,7 +94,7 @@
       <qti-card support="spoken">
         <qti-card-entry data-reading-type="computer-read-aloud">
           <qti-html-content>
-            <p>Two armies fighting on a field</p>
+            <p>no conflict at all</p>
           </qti-html-content>
         </qti-card-entry>
       </qti-card>
@@ -103,7 +103,7 @@
       <qti-card support="spoken">
         <qti-card-entry data-reading-type="computer-read-aloud">
           <qti-html-content>
-            <p>A violent storm wrecking a ship</p>
+            <p>the resolution</p>
           </qti-html-content>
         </qti-card-entry>
       </qti-card>
@@ -112,7 +112,7 @@
       <qti-card support="spoken">
         <qti-card-entry data-reading-type="computer-read-aloud">
           <qti-html-content>
-            <p>A monster is something out in the world — a visible struggle. That's the other flavor of conflict.</p>
+            <p>Internal conflict happens inside one head — fear, pride, doubt. This sailor's fight isn't in his head; look where the struggle is actually taking place.</p>
           </qti-html-content>
         </qti-card-entry>
       </qti-card>
@@ -121,7 +121,7 @@
       <qti-card support="spoken">
         <qti-card-entry data-reading-type="computer-read-aloud">
           <qti-html-content>
-            <p>Correct! Internal conflict is a character against their own emotions, like fear or pride.</p>
+            <p>Correct! The sailor is struggling against something out in the world — the storm and the sea — so the conflict is external, like the figure braced against the storm in the video.</p>
           </qti-html-content>
         </qti-card-entry>
       </qti-card>
@@ -130,7 +130,7 @@
       <qti-card support="spoken">
         <qti-card-entry data-reading-type="computer-read-aloud">
           <qti-html-content>
-            <p>Two armies clashing is a struggle you can see out in the world — not a battle happening inside one head.</p>
+            <p>A sailor versus a sinking boat is a life-or-death struggle — without a problem like this, you'd just have a list of stuff that happened.</p>
           </qti-html-content>
         </qti-card-entry>
       </qti-card>
@@ -139,7 +139,7 @@
       <qti-card support="spoken">
         <qti-card-entry data-reading-type="computer-read-aloud">
           <qti-html-content>
-            <p>A storm is an outside force acting on the character — the struggle is visible, not inside one head.</p>
+            <p>The resolution is a stage of the plot — the settling at the end. This question asks what kind of struggle the sailor is in, and nothing here is settling.</p>
           </qti-html-content>
         </qti-card-entry>
       </qti-card>

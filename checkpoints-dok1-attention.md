@@ -16,12 +16,12 @@ Explanation: "The climax is the turning point at the peak of the pyramid — in 
 
 ## CHECKPOINT 2 — cue 181.5 s (after TWO FLAVORS OF CONFLICT)
 
-Prompt: "Alex says conflict comes in two 'flavors.' Which two?"
-A) ✅ External and internal
-B) Rising and falling
-C) Major and minor
-D) Loud and quiet
-Explanation: "The split screen labels the two flavors of conflict: EXTERNAL (the character versus the world) and INTERNAL (the character versus themselves)."
+Prompt: "A sailor fighting to keep his boat from going under is an example of —"
+A) internal conflict
+B) ✅ external conflict
+C) no conflict at all
+D) the resolution
+Explanation: "The sailor is struggling against something out in the world — the storm and the sea — so the conflict is external, like the figure braced against the storm in the video."
 
 ## CHECKPOINT 3 — cue 285.5 s (after THE HABIT)
 

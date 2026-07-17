@@ -25,7 +25,7 @@ and frame extraction to confirm what is on screen:
 | Cue | Item | Hold (silence) | On screen | Notes |
 |---|---|---|---|---|
 | **96.5 s** | L16Q1 climax location | 94.5–100.0 | "Where's the climax?" card | after THE FIVE STAGES; question pairs with the card |
-| **181.5 s** | L16Q2 internal conflict | 178.9–184.5 | "External or internal?" card | after TWO FLAVORS |
+| **181.5 s** | L16Q2 external conflict (sailor vs storm) | 178.9–184.5 | "External or internal?" card | after TWO FLAVORS; mirrors the split-screen storm figure |
 | **285.5 s** | L16Q3 conflict first | 282.3–287.9 | "What's the conflict?" card | after THE HABIT |
 | **301.5 s** | L16Q-READ Poe passage | 295.8–303.5 | Poe excerpt, fully typed at ~300.8 | narration at 303.5 **reveals the answer** — cue must fire before it; 2 s margin left for player pause latency |
 | **333 / 333.9 / 334.8 / 335.6 s** | L16Q4–Q7 closing quiz | 331.7–336.5 | End card: "Find the conflict first." + labeled pyramid | staggered ~0.9 s so they fire in order back-to-back over the static card; last completes ~1 s before the end so `VIDEO_COMPLETED` still fires |
@@ -63,6 +63,10 @@ production and swap the URLs.
   "Where is the climax in Freytag's Pyramid?" (correct: B, the peak) so the checkpoint
   pairs with the video's on-screen "Where's the climax?" card
   (`items/l16-q1-climax-location.xml`).
+- **Q2 differs from the script.** The script's internal-conflict question was replaced
+  with "A sailor fighting to keep his boat from going under is an example of —"
+  (correct: B, external conflict), mirroring the storm figure in the video's
+  external/internal split screen (`items/l16-q2-external-conflict.xml`).
 - **Q-READ passage matches the video, not the script.** On screen the excerpt is trimmed
   (ends at "…that I am mad?"; the "disease had sharpened my senses" sentence is not shown).
   The item embeds the on-screen version so "based only on this passage" stays exact.
