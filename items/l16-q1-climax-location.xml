@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<qti-assessment-item xmlns="http://www.imsglobal.org/xsd/imsqtiasi_v3p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqtiasi_v3p0 https://purl.imsglobal.org/spec/qti/v3p0/schema/xsd/imsqti_asiv3p0_v1p0.xsd http://www.w3.org/1998/Math/MathML https://purl.imsglobal.org/spec/mathml/v3p0/schema/xsd/mathml3.xsd" identifier="lwai_f3e32a01-3490-4d22-8b21-f2b5081dc1e3" title="L16 Checkpoint 1 — Freytag's stage order" adaptive="true" time-dependent="false" xml:lang="en-US">
+<qti-assessment-item xmlns="http://www.imsglobal.org/xsd/imsqtiasi_v3p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqtiasi_v3p0 https://purl.imsglobal.org/spec/qti/v3p0/schema/xsd/imsqti_asiv3p0_v1p0.xsd http://www.w3.org/1998/Math/MathML https://purl.imsglobal.org/spec/mathml/v3p0/schema/xsd/mathml3.xsd" identifier="lwai_f3e32a01-3490-4d22-8b21-f2b5081dc1e3" title="L16 Checkpoint 1 — Where's the climax?" adaptive="true" time-dependent="false" xml:lang="en-US">
   <qti-response-declaration identifier="RESPONSE" cardinality="single" base-type="identifier">
     <qti-correct-response>
-      <qti-value>C</qti-value>
+      <qti-value>B</qti-value>
     </qti-correct-response>
   </qti-response-declaration>
   <qti-outcome-declaration identifier="SCORE" cardinality="single" base-type="float"/>
@@ -10,52 +10,52 @@
   <qti-item-body>
     <qti-choice-interaction max-choices="1" response-identifier="RESPONSE">
       <qti-prompt data-catalog-idref="tts_prompt">
-        <p>Which is the correct order of Freytag's stages?</p>
+        <p>Where is the climax in Freytag's Pyramid?</p>
       </qti-prompt>
       <qti-simple-choice fixed="true" identifier="A">
         <div data-catalog-idref="tts_choice_A">
-          <p>Climax, exposition, rising action, resolution, falling action</p>
+          <p>At the very beginning, before the action starts</p>
         </div>
         <qti-feedback-block identifier="feedback_A" outcome-identifier="FEEDBACK" show-hide="show">
           <qti-content-body>
             <div class="tb-feedback-incorrect" data-catalog-idref="feedback_A">
-              <p>Not quite. A story can't open at its turning point — one stage has to set up the characters and their world before anything can build.</p>
+              <p>The very beginning is the exposition — the setup before anything's gone wrong. The climax comes much later.</p>
             </div>
           </qti-content-body>
         </qti-feedback-block>
       </qti-simple-choice>
       <qti-simple-choice fixed="true" identifier="B">
         <div data-catalog-idref="tts_choice_B">
-          <p>Resolution, falling action, climax, rising action, exposition</p>
+          <p>At the top — the peak of the pyramid</p>
         </div>
         <qti-feedback-block identifier="feedback_B" outcome-identifier="FEEDBACK" show-hide="show">
           <qti-content-body>
-            <div class="tb-feedback-incorrect" data-catalog-idref="feedback_B">
-              <p>This lists the stages in reverse. A story can't open with everything already settled and the loose ends tied.</p>
+            <div class="tb-feedback-correct" data-catalog-idref="feedback_B">
+              <p>Correct! The climax is the peak of the pyramid — the turning point everything pivots on, with rising action climbing toward it and falling action rippling out after.</p>
             </div>
           </qti-content-body>
         </qti-feedback-block>
       </qti-simple-choice>
       <qti-simple-choice fixed="true" identifier="C">
         <div data-catalog-idref="tts_choice_C">
-          <p>Exposition, rising action, climax, falling action, resolution</p>
+          <p>At the end, where things settle down</p>
         </div>
         <qti-feedback-block identifier="feedback_C" outcome-identifier="FEEDBACK" show-hide="show">
           <qti-content-body>
-            <div class="tb-feedback-correct" data-catalog-idref="feedback_C">
-              <p>Correct! Freytag's order is exposition, rising action, climax, falling action, resolution.</p>
+            <div class="tb-feedback-incorrect" data-catalog-idref="feedback_C">
+              <p>The end is the resolution, where things settle and the loose ends get tied — by then the turning point has already passed.</p>
             </div>
           </qti-content-body>
         </qti-feedback-block>
       </qti-simple-choice>
       <qti-simple-choice fixed="true" identifier="D">
         <div data-catalog-idref="tts_choice_D">
-          <p>Rising action, exposition, resolution, climax, falling action</p>
+          <p>Outside the pyramid entirely</p>
         </div>
         <qti-feedback-block identifier="feedback_D" outcome-identifier="FEEDBACK" show-hide="show">
           <qti-content-body>
             <div class="tb-feedback-incorrect" data-catalog-idref="feedback_D">
-              <p>The tension can't start climbing before we've met the characters — and the turning point can't land after things have settled.</p>
+              <p>Every stage of the story, climax included, lives on the pyramid — that's the whole point of the shape.</p>
             </div>
           </qti-content-body>
         </qti-feedback-block>
@@ -67,7 +67,7 @@
       <qti-card support="spoken">
         <qti-card-entry data-reading-type="computer-read-aloud">
           <qti-html-content>
-            <p>Which is the correct order of Freytag's stages?</p>
+            <p>Where is the climax in Freytag's Pyramid?</p>
           </qti-html-content>
         </qti-card-entry>
       </qti-card>
@@ -76,7 +76,7 @@
       <qti-card support="spoken">
         <qti-card-entry data-reading-type="computer-read-aloud">
           <qti-html-content>
-            <p>Climax, exposition, rising action, resolution, falling action</p>
+            <p>At the very beginning, before the action starts</p>
           </qti-html-content>
         </qti-card-entry>
       </qti-card>
@@ -85,7 +85,7 @@
       <qti-card support="spoken">
         <qti-card-entry data-reading-type="computer-read-aloud">
           <qti-html-content>
-            <p>Resolution, falling action, climax, rising action, exposition</p>
+            <p>At the top — the peak of the pyramid</p>
           </qti-html-content>
         </qti-card-entry>
       </qti-card>
@@ -94,7 +94,7 @@
       <qti-card support="spoken">
         <qti-card-entry data-reading-type="computer-read-aloud">
           <qti-html-content>
-            <p>Exposition, rising action, climax, falling action, resolution</p>
+            <p>At the end, where things settle down</p>
           </qti-html-content>
         </qti-card-entry>
       </qti-card>
@@ -103,7 +103,7 @@
       <qti-card support="spoken">
         <qti-card-entry data-reading-type="computer-read-aloud">
           <qti-html-content>
-            <p>Rising action, exposition, resolution, climax, falling action</p>
+            <p>Outside the pyramid entirely</p>
           </qti-html-content>
         </qti-card-entry>
       </qti-card>
@@ -112,7 +112,7 @@
       <qti-card support="spoken">
         <qti-card-entry data-reading-type="computer-read-aloud">
           <qti-html-content>
-            <p>Not quite. A story can't open at its turning point — one stage has to set up the characters and their world before anything can build.</p>
+            <p>The very beginning is the exposition — the setup before anything's gone wrong. The climax comes much later.</p>
           </qti-html-content>
         </qti-card-entry>
       </qti-card>
@@ -121,7 +121,7 @@
       <qti-card support="spoken">
         <qti-card-entry data-reading-type="computer-read-aloud">
           <qti-html-content>
-            <p>This lists the stages in reverse. A story can't open with everything already settled and the loose ends tied.</p>
+            <p>Correct! The climax is the peak of the pyramid — the turning point everything pivots on, with rising action climbing toward it and falling action rippling out after.</p>
           </qti-html-content>
         </qti-card-entry>
       </qti-card>
@@ -130,7 +130,7 @@
       <qti-card support="spoken">
         <qti-card-entry data-reading-type="computer-read-aloud">
           <qti-html-content>
-            <p>Correct! Freytag's order is exposition, rising action, climax, falling action, resolution.</p>
+            <p>The end is the resolution, where things settle and the loose ends get tied — by then the turning point has already passed.</p>
           </qti-html-content>
         </qti-card-entry>
       </qti-card>
@@ -139,7 +139,7 @@
       <qti-card support="spoken">
         <qti-card-entry data-reading-type="computer-read-aloud">
           <qti-html-content>
-            <p>The tension can't start climbing before we've met the characters — and the turning point can't land after things have settled.</p>
+            <p>Every stage of the story, climax included, lives on the pyramid — that's the whole point of the shape.</p>
           </qti-html-content>
         </qti-card-entry>
       </qti-card>
@@ -153,7 +153,7 @@
           <qti-correct identifier="RESPONSE"/>
         </qti-match>
         <qti-set-outcome-value identifier="FEEDBACK">
-          <qti-base-value base-type="identifier">feedback_C</qti-base-value>
+          <qti-base-value base-type="identifier">feedback_B</qti-base-value>
         </qti-set-outcome-value>
         <qti-set-outcome-value identifier="SCORE">
           <qti-base-value base-type="float">1</qti-base-value>
@@ -186,10 +186,10 @@
       <qti-response-if>
         <qti-match>
           <qti-variable identifier="RESPONSE"/>
-          <qti-base-value base-type="identifier">B</qti-base-value>
+          <qti-base-value base-type="identifier">C</qti-base-value>
         </qti-match>
         <qti-set-outcome-value identifier="FEEDBACK">
-          <qti-base-value base-type="identifier">feedback_B</qti-base-value>
+          <qti-base-value base-type="identifier">feedback_C</qti-base-value>
         </qti-set-outcome-value>
       </qti-response-if>
     </qti-response-condition>

@@ -24,7 +24,7 @@ and frame extraction to confirm what is on screen:
 
 | Cue | Item | Hold (silence) | On screen | Notes |
 |---|---|---|---|---|
-| **96.5 s** | L16Q1 stage order | 94.5–100.0 | "Where's the climax?" card | after THE FIVE STAGES |
+| **96.5 s** | L16Q1 climax location | 94.5–100.0 | "Where's the climax?" card | after THE FIVE STAGES; question pairs with the card |
 | **181.5 s** | L16Q2 internal conflict | 178.9–184.5 | "External or internal?" card | after TWO FLAVORS |
 | **285.5 s** | L16Q3 conflict first | 282.3–287.9 | "What's the conflict?" card | after THE HABIT |
 | **301.5 s** | L16Q-READ Poe passage | 295.8–303.5 | Poe excerpt, fully typed at ~300.8 | narration at 303.5 **reveals the answer** — cue must fire before it; 2 s margin left for player pause latency |
@@ -59,6 +59,10 @@ production and swap the URLs.
 
 ## Content decisions to be aware of
 
+- **Q1 differs from the script.** The script's stage-order question was replaced with
+  "Where is the climax in Freytag's Pyramid?" (correct: B, the peak) so the checkpoint
+  pairs with the video's on-screen "Where's the climax?" card
+  (`items/l16-q1-climax-location.xml`).
 - **Q-READ passage matches the video, not the script.** On screen the excerpt is trimmed
   (ends at "…that I am mad?"; the "disease had sharpened my senses" sentence is not shown).
   The item embeds the on-screen version so "based only on this passage" stays exact.
