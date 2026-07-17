@@ -16,11 +16,11 @@
   VIDEO_COMPLETED still fires after it:
     333   → L16Q4    333.9 → L16Q5    334.8 → L16Q6    335.6 → L16Q7
 
-  BEFORE PUSHING TO THE PLATFORM:
-  1. All URLs below are RELATIVE so the bundle works locally (see preview.html).
-     The live player needs fully-qualified https:// URLs for media (video src, poster).
-     Catalog item hrefs may stay relative only if the embed sets config.baseUrl;
-     otherwise make them absolute too.
+  HOSTING:
+  1. Media and item URLs are absolute, served from GitHub Pages
+     (https://github.com/alexwrega/g9-l16-freytags-pyramid → alexwrega.github.io).
+     Verified: HTTPS, Access-Control-Allow-Origin: *, Accept-Ranges: bytes.
+     If the video moves to the platform CDN, swap the src/poster/item hrefs.
   2. This file is authored bootloader-style (outer tb-instructional-content wrapper).
      For postMessage / Direct URL embeds, send only the inner content
      (tb-article-container + tb-catalog) — do not double-wrap.
@@ -31,7 +31,7 @@
       <h2>Plot &amp; Conflict — Freytag's Pyramid</h2>
       <figure class="tb-video" id="g9-l16-freytags-pyramid-video" data-duration-seconds="336.5">
         <figcaption>Plot &amp; Conflict — Freytag's Pyramid</figcaption>
-        <video src="g9-reading-freytags-pyramid-plot-conflict.mp4" poster="poster-g9-l16-freytags-pyramid.jpg" controls crossorigin="anonymous"></video>
+        <video src="https://alexwrega.github.io/g9-l16-freytags-pyramid/g9-reading-freytags-pyramid-plot-conflict.mp4" poster="https://alexwrega.github.io/g9-l16-freytags-pyramid/poster-g9-l16-freytags-pyramid.jpg" controls crossorigin="anonymous"></video>
         <div class="tb-interaction tb-qti-assessment-item" data-timestamp-seconds="96.5" data-catalog-idref="l16-q1"></div>
         <div class="tb-interaction tb-qti-assessment-item" data-timestamp-seconds="181.5" data-catalog-idref="l16-q2"></div>
         <div class="tb-interaction tb-qti-assessment-item" data-timestamp-seconds="285.5" data-catalog-idref="l16-q3"></div>
@@ -45,28 +45,28 @@
   </div>
   <div class="tb-catalog" hidden>
     <div class="tb-qti-config" id="l16-q1">
-      <a href="items/l16-q1-stage-order.xml" type="application/xml"></a>
+      <a href="https://alexwrega.github.io/g9-l16-freytags-pyramid/items/l16-q1-stage-order.xml" type="application/xml"></a>
     </div>
     <div class="tb-qti-config" id="l16-q2">
-      <a href="items/l16-q2-internal-conflict.xml" type="application/xml"></a>
+      <a href="https://alexwrega.github.io/g9-l16-freytags-pyramid/items/l16-q2-internal-conflict.xml" type="application/xml"></a>
     </div>
     <div class="tb-qti-config" id="l16-q3">
-      <a href="items/l16-q3-conflict-first.xml" type="application/xml"></a>
+      <a href="https://alexwrega.github.io/g9-l16-freytags-pyramid/items/l16-q3-conflict-first.xml" type="application/xml"></a>
     </div>
     <div class="tb-qti-config" id="l16-q-read">
-      <a href="items/l16-q-read-tell-tale-heart.xml" type="application/xml"></a>
+      <a href="https://alexwrega.github.io/g9-l16-freytags-pyramid/items/l16-q-read-tell-tale-heart.xml" type="application/xml"></a>
     </div>
     <div class="tb-qti-config" id="l16-q4">
-      <a href="items/l16-q4-climax.xml" type="application/xml"></a>
+      <a href="https://alexwrega.github.io/g9-l16-freytags-pyramid/items/l16-q4-climax.xml" type="application/xml"></a>
     </div>
     <div class="tb-qti-config" id="l16-q5">
-      <a href="items/l16-q5-necklace-rising-action.xml" type="application/xml"></a>
+      <a href="https://alexwrega.github.io/g9-l16-freytags-pyramid/items/l16-q5-necklace-rising-action.xml" type="application/xml"></a>
     </div>
     <div class="tb-qti-config" id="l16-q6">
-      <a href="items/l16-q6-plot-delivery.xml" type="application/xml"></a>
+      <a href="https://alexwrega.github.io/g9-l16-freytags-pyramid/items/l16-q6-plot-delivery.xml" type="application/xml"></a>
     </div>
     <div class="tb-qti-config" id="l16-q7">
-      <a href="items/l16-q7-conflict-definition.xml" type="application/xml"></a>
+      <a href="https://alexwrega.github.io/g9-l16-freytags-pyramid/items/l16-q7-conflict-definition.xml" type="application/xml"></a>
     </div>
   </div>
 </div>

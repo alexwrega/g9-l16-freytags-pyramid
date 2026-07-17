@@ -40,11 +40,18 @@ python3 -m http.server 8123
 # open http://localhost:8123/preview.html — use the jump buttons to land ~4 s before each cue
 ```
 
+## Hosting
+
+The bundle is served from GitHub Pages: **https://alexwrega.github.io/g9-l16-freytags-pyramid/**
+(repo `alexwrega/g9-l16-freytags-pyramid`). Verified: HTTPS, `Access-Control-Allow-Origin: *`,
+`Accept-Ranges: bytes`, correct MIME types. The lesson's video/poster/item URLs are absolute
+to this host, so the local preview now needs internet. Pages has a soft ~100 GB/month
+bandwidth cap (≈3,000 full plays) — fine for pilots, move media to the platform CDN for
+production and swap the URLs.
+
 ## Before pushing to the platform
 
-1. **URLs are relative** so the bundle works locally. The live player needs fully-qualified
-   `https://` URLs for media (`<video src>`, `poster`). Catalog item hrefs may stay relative
-   only if the embed sets `config.baseUrl`; otherwise make them absolute too.
+1. The lesson's media and item URLs are already fully-qualified `https://` (see Hosting).
 2. The file is authored **bootloader-style** (outer `tb-instructional-content` wrapper).
    For postMessage / Direct URL embeds send only the inner content — do not double-wrap.
 3. Run the MCQ set through the **mcq-qc** workflow (writer ≠ QC judge).
